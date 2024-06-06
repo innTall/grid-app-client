@@ -44,7 +44,7 @@ export default defineConfig({
             purpose: "any",
           },
           {
-            src: "pwa-1024x1024.png",
+            src: "mask-icon-1024.png",
             sizes: "1024x1024",
             type: "image/png",
             purpose: "maskable",
