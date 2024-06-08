@@ -13,7 +13,7 @@ export const useOptionsStore = defineStore(
     const amountRound = ref();
 
     async function getOptions() {
-      let uri = "http://localhost:3000/options";
+      let uri = "https://grid-trade-9nbd.onrender.com/options";
       try {
         const response = await fetch(uri);
         const data = await response.json();
@@ -24,7 +24,7 @@ export const useOptionsStore = defineStore(
     }
 
     async function postOptions() {
-      const uri = "http://localhost:3000/options";
+      const uri = "https://grid-trade-9nbd.onrender.com/options";
       const Options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -55,7 +55,7 @@ export const useOptionsStore = defineStore(
     }
 
     async function updateOptions() {
-      let uri = "http://localhost:3000/options";
+      let uri = "https://grid-trade-9nbd.onrender.com/options";
       try {
         const response = await fetch(uri);
         const data = await response.json();

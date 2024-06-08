@@ -7,7 +7,7 @@ export const useTickerStore = defineStore(
     const favorits = ref([]);
 
     async function getTickers() {
-      let uri = "http://localhost:3000/watch";
+      let uri = "https://grid-trade-9nbd.onrender.com/watch";
       try {
         const response = await fetch(uri);
         const data = await response.json();
