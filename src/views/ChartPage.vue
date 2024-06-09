@@ -108,7 +108,7 @@ onMounted(() => {
 	// =====================
 	let valueSeries = mainPanel.series.push(
 		am5xy.CandlestickSeries.new(root, { //LineSeries.new()
-			name: "BNBBUSD, 1D",
+			name: `${route.params.symbol}, 1D`,
 			xAxis: dateAxis,
 			yAxis: valueAxis,
 			openValueYField: "open",
