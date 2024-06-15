@@ -166,6 +166,22 @@ onMounted(() => {
 	//})
 	// Set main volume series
 	stockChart.set("volumeSeries", volumeSeries);
+
+	// ==========
+	// ADD LEGEND
+	// ==========
+	const valueLegend = mainPanel.children.push(
+		am5.Legend.new(root, {
+			centerY: am5.percent(20),
+			y: am5.percent(0),
+			layout: root.verticalLayout
+		})
+	);
+	valueLegend.markers.template.setAll({
+		width: 8,
+		height: 8
+	});
+
 	// ==================
 	// DEFINE SOURCE DATA
 	// ==================
@@ -194,25 +210,12 @@ onMounted(() => {
 			dateAxis.data.setAll(data);
 			//series.data.setAll(data);
 			valueSeries.data.setAll(data),
-				volumeSeries.data.setAll(data),
-				valueLegend.data.setAll([valueSeries]);
+			volumeSeries.data.setAll(data),
+			valueLegend.data.setAll([valueSeries]);
 		}).catch((result) => {
 			console.log("Error loading " + result.xhr.responseURL);
 		});
-	// ==========
-	// ADD LEGEND
-	// ==========
-	const valueLegend = mainPanel.children.push(
-		am5.Legend.new(root, {
-			centerY: am5.percent(20),
-			y: am5.percent(0),
-			layout: root.verticalLayout
-		})
-	);
-	valueLegend.markers.template.setAll({
-		width: 8,
-		height: 8
-	});
+	
 	// ============
 	// ADD TOOLTIPS
 	// ============
@@ -236,6 +239,7 @@ onMounted(() => {
 		fontSize: 10
 		//fill: am5.color(0xffff00),
 	});
+
 	// ==========
 	// ADD CURSOR
 	// ==========
@@ -268,7 +272,7 @@ onMounted(() => {
 		stockChart: stockChart
 	})
 	valueSeries.events.on("datavalidated", () => {
-		periodSelector.selectPeriod({ timeUnit: "month", count: 3 })
+		periodSelector.selectPeriod({ timeUnit: "month", count: 6 })
 	})
 
 	// ============================
@@ -312,6 +316,6 @@ onMounted(() => {
 <style scoped>
 #chart {
 	width: 100%;
-	height: 83vh;
+	height: 80vh;
 }
 </style>
